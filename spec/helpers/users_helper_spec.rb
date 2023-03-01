@@ -11,4 +11,5 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe UsersHelper, type: :helper do
+  'pending'
 end
