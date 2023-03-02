@@ -1,1 +1,10 @@
-<h1>Here are the list of all users</h1>
+<% @users.each do |user| %>
+  <div>
+    <div><img src="<%= user.photo %>" alt="User" /></div>
+    <div>
+      <h1><%= user.name %></h1>
+      <span>number of post: <%= user.posts.count %></span>
+    </div>
+  </div>
+  <%= link_to "view", user %>
+<% end %>

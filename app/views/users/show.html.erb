@@ -1,1 +1,12 @@
-<h1>Here are all the details about this user</h1>
+<div>
+  <div><img src="<%= @user.photo %>" alt="User" /></div>
+  <div>
+    <h1><%= @user.name %></h1>
+    <p>number of post: <%= @user.posts.count %></p>
+  </div>
+</div>
+<div>
+ <p><%= @user.bio %></p>
+ <%= render 'post' %>
+<button><a href='<%= request.original_url %>/posts'>see all posts</a></button>
+</div>
