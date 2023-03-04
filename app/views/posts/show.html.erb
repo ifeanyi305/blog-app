@@ -9,3 +9,14 @@
 <% @posts.comments.each do |comment| %>
   <p><%= comment.author.name  %>: <%= comment.text %></p>
 <% end %>
+
+<%= render 'partials/likes' %>
+
+<%= form_with(model: @comment, url: "/users/#{@posts.author.id}/posts/#{@posts.id}/comments", method: :post, scope: :comment) do |form| %>
+  <div class="form-group">
+    <%= form.label :text %>
+    <%= form.text_area :text, class: 'form-control' %>
+  </div>
+
+  <%= form.submit 'Create Comment', class: 'btn btn-primary' %>
+<% end %>
