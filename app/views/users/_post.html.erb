@@ -1,7 +1,7 @@
 <h1>this is a post </h1>
 
 <% @user.three_most_recent_post.each do |post| %>
-  <h1><%= post.title %></h1>
+  <h1><a href="/users/<%= @user.id %>/posts/<%= post.id %>" class=""><%= post.title %></a></h1>
   <span><%= post.text %></span>
   <span>comments: <%= post.comments.count %></span>
   <span>Likes: <%= post.likes.count %></span>

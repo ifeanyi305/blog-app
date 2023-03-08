@@ -2,7 +2,7 @@
   <div>
     <div><img src="<%= user.photo %>" alt="User" /></div>
     <div>
-      <h1><%= user.name %></h1>
+      <h1><%= link_to user.name, user %></h1>
       <span>number of post: <%= user.posts.count %></span>
     </div>
   </div>
