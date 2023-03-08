@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'User', type: :system do
   before :each do
     @user = User.create(name: 'Simon', photo: 'https://randomuser.me/api/portraits/men/1.jpg', bio: 'Teacher in South Africa')
-    @first_post = Post.create(author: @user, title: 'Hello', text: 'This is my first post')
-    @comment = Comment.create(post: @first_post, author: @user, text: 'Hi Tom!' )
+    @first_post = Post.create(author: @user, title: 'Hello', text: 'Hi there this is my first post')
+    @comment = Comment.create(post: @first_post, author: @user, text: 'Hi Tom, How are you doing!' )
   end
   it "shows the title of the post" do
     visit "/users/#{@user.id}/posts/#{@first_post.id}"
