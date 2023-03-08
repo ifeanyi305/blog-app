@@ -18,7 +18,7 @@ RSpec.describe 'User', type: :system do
     it 'redirects to the users show page when i click on the username' do
       user = User.find_by(name: 'joseph')
       visit users_path
-      click_on "joseph"
+      click_on 'joseph'
       expect(page).to have_current_path("/users/#{user.id}")
     end
   end
