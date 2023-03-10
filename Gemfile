@@ -75,6 +75,7 @@ group :development do
 end
 
 gem 'devise'
+gem 'cancancan'
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]

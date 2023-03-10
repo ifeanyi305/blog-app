@@ -13,11 +13,18 @@
     <span>Likes: <%= post.likes_counter %></span>
     <a href="/users/<%= @user.id %>/posts/<%= post.id %>" class="">view post</a>
   </div>
+  <% if can? :destroy, post %>
+    <%= button_to 'Delete Post', user_post_path(post.author, post), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
   <% post.five_most_recent_comments.includes(:author).each do |comment| %>
     <div>
       <span><%= comment.author.name  %>: </span>
       <span><%= comment.text  %></span>
     </div>
+    <% if can? :destroy, comment %>
+      <%= button_to 'Delete comment', user_post_comment_path(comment.author, post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    
   <%-end-%>
 <% end %>
 

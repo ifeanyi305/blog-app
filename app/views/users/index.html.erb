@@ -1,6 +1,7 @@
+<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+<p>signed in as <%= current_user.name %> </p>
 <% @users.each do |user| %>
   <div>
-    <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
     <div><img src="<%= user.photo %>" alt="User" /></div>
     <div>
       <h1><%= link_to user.name, user %></h1>
