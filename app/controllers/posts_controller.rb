@@ -15,11 +15,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(title: params[:post][:title], text: params[:post][:text], author: current_user, likes_counter: 0, comments_counter: 0)
+    @post = Post.new(title: params[:post][:title], text: params[:post][:text], author: current_user, likes_counter: 0,
+                     comments_counter: 0)
     if @post.save
       redirect_to "/users/#{current_user.id}/posts", notice: 'Post was successfully created.'
     else
-      p @post.errors
+      render :new
     end
   end
 
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to "/users/#{current_user.id}/posts", notice: 'Post was successfully deleted.'
   end
-  
+
   private
 
   def post_params
