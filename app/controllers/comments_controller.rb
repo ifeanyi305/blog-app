@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
@@ -10,6 +12,12 @@ class CommentsController < ApplicationController
     else
       render 'posts/show'
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    authorize! :destroy, @comment
+    @comment.destroy
   end
 
   private
