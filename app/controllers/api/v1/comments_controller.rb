@@ -21,7 +21,7 @@ class Api::V1::CommentsController < ApplicationController
 
   private
 
-def set_post
+  def set_post
     @post = Post.find(params[:post_id])
   end
 
